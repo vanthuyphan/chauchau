@@ -4,6 +4,7 @@ import { Col, Row, Container } from 'reactstrap';
 import scrollToComponent from 'react-scroll-to-component';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { changeThemeToDark, changeThemeToLight } from '../../redux/actions/themeActions';
@@ -37,14 +38,7 @@ class Landing extends PureComponent {
                     <img src={logo} alt="" />
                   </p>
                   <nav className="landing__menu-nav">
-                    <a
-                      className="landing__btn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="log_in"
-                    >
-                      Login
-                    </a>
+                    <Link className="landing__btn" to="/log_in">Log In</Link>
                   </nav>
                 </div>
               </Col>
