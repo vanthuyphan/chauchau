@@ -1,21 +1,20 @@
-import React, { PureComponent } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import EyeIcon from 'mdi-react/EyeIcon';
-import KeyVariantIcon from 'mdi-react/KeyVariantIcon';
-import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import renderCheckBoxField from '../../../../shared/components/form/CheckBox';
+import React, { PureComponent } from "react";
+import { Field, reduxForm } from "redux-form";
+import EyeIcon from "mdi-react/EyeIcon";
+import KeyVariantIcon from "mdi-react/KeyVariantIcon";
+import AccountOutlineIcon from "mdi-react/AccountOutlineIcon";
+import PropTypes from "prop-types";
+import renderCheckBoxField from "../../../../shared/components/form/CheckBox";
 
 class LogInForm extends PureComponent {
   static propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      showPassword: false,
+      showPassword: false
     };
 
     this.showPassword = this.showPassword.bind(this);
@@ -55,14 +54,17 @@ class LogInForm extends PureComponent {
             <Field
               name="password"
               component="input"
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
             />
             <button
               type="button"
-              className={`form__form-group-button${showPassword ? ' active' : ''}`}
+              className={`form__form-group-button${
+                showPassword ? " active" : ""
+              }`}
               onClick={e => this.showPassword(e)}
-            ><EyeIcon />
+            >
+              <EyeIcon />
             </button>
           </div>
           <div className="account__forgot-password">
@@ -79,7 +81,11 @@ class LogInForm extends PureComponent {
           </div>
         </div>
         <div className="account__btns">
-          <Link className="btn btn-primary account__btn" to="/dashboard_default">Sign In</Link>
+          <button
+            type="button"
+            className="btn btn-primary account__btn"
+            onClick={e => this.showPassword(e)}
+          />
         </div>
       </form>
     );
@@ -87,5 +93,5 @@ class LogInForm extends PureComponent {
 }
 
 export default reduxForm({
-  form: 'log_in_form', // a unique identifier for this form
+  form: "log_in_form" // a unique identifier for this form
 })(LogInForm);
