@@ -22,6 +22,7 @@ import BasicTables from '../Tables/BasicTables/index';
 import DataTable from '../Tables/DataTable/index';
 import EditableTable from '../Tables/EditableTable/index';
 import MaterialTable from '../Tables/MaterialTable/index';
+import Users from '../Users/index';
 
 import GoogleMap from '../Maps/GoogleMap/index';
 import VectorMap from '../Maps/VectorMap/index';
@@ -237,6 +238,7 @@ const wrappedRoutes = () => (
       <Route path="/e-commerce" component={ECommerce} />
       <Route path="/default_pages" component={DefaultPages} />
       <Route path="/documentation" component={Documentation} />
+      <Route path="/users" component={Users} />
     </div>
   </div>
 );
