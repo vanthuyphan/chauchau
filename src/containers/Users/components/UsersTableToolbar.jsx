@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from 'mdi-react/AddIcon';
+import DeleteIcon from 'mdi-react/DeleteIcon';
 import UserTableFilterButton from './UserTableFilterButton';
 
 const UsersTableToolbar = ({ numSelected, handleDeleteSelected, onRequestSort }) => (
