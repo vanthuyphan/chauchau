@@ -61,6 +61,7 @@
 @import './component/material-table';         // pages/tables/material_table/*
 @import './component/load';
 @import './component/customizer';
+@import './component/modalPopup';             //Popup.
 
 //pages...
 @import 'containers/account';              // pages/account/* (except profile)
@@ -76,6 +77,8 @@
 @import 'containers/project-summary';      // pages/default_pages/project_summary/*
 @import 'containers/documentation';
 @import 'containers/landing';
+@import 'containers/user';
+
 
 //objects...
 @import 'objects/layout.scss';        // layout settings
