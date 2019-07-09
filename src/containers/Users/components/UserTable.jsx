@@ -37,6 +37,7 @@ export default class UserTable extends PureComponent {
     // ],
     page: 0,
     rowsPerPage: 5,
+    visiblePopup: true,
   };
   this.refreshCourses = this.refreshCourses.bind(this);
 }
@@ -91,7 +92,21 @@ componentDidMount() {
   handleChangeRowsPerPage = (event) => {
     this.setState({ rowsPerPage: event.target.value });
   };
+  submit = values => {
+    this.setState({visiblePopup: false})
+    // print the form values to the console
+    console.log(values)
+    UsersDataService.addClient(values)
+      .then(
+        (response) => {
+          console.log(response);
+          this.setState({ returnData: response.data })
+          alert("Add new user with username: "+ this.state.returnData.username);
+          this.refreshCourses()
+        },
+      );
 
+  }
   handleDeleteSelected = () => {
     const { data } = this.state;
     let copyData = [...data];
@@ -124,14 +139,14 @@ componentDidMount() {
       .then(
         (response) => {
           console.log(response);
-          this.setState({ data: response.data });
+          this.setState({ data: response.data, visiblePopup: true});
         },
       );
   }
 
   render() {
     const {
-      data, order, orderBy, selected, rowsPerPage, page,
+      data, order, orderBy, selected, rowsPerPage, page,visiblePopup
     } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - (page * rowsPerPage));
 
@@ -145,6 +160,8 @@ componentDidMount() {
               numSelected={selected.length}
               handleDeleteSelected={this.handleDeleteSelected}
               onRequestSort={this.handleRequestSort}
+              submit={this.submit}
+              visiblePopup={visiblePopup}
             />
             <div className="material-table__wrap">
               <Table className="material-table">
