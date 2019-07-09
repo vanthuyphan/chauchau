@@ -5,11 +5,9 @@ import KeyVariantIcon from "mdi-react/KeyVariantIcon";
 import AccountOutlineIcon from "mdi-react/AccountOutlineIcon";
 import PropTypes from "prop-types";
 import renderCheckBoxField from "../../../../shared/components/form/CheckBox";
+import UsersDataService from '../LoginService';
 
 class LogInForm extends PureComponent {
-  static propTypes = {
-    handleSubmit: PropTypes.func.isRequired
-  };
 
   constructor(props) {
     super(props);
@@ -25,12 +23,16 @@ class LogInForm extends PureComponent {
     this.setState(prevState => ({ showPassword: !prevState.showPassword }));
   }
 
+  onLoginClick() {
+    alert("Login in")
+    UsersDataService.login('vanthuyphan3', 'vanthuyphan')
+  }
+
   render() {
-    const { handleSubmit } = this.props;
     const { showPassword } = this.state;
 
     return (
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={this.onLoginClick}>
         <div className="form__form-group">
           <span className="form__form-group-label">Username</span>
           <div className="form__form-group-field">
@@ -84,7 +86,8 @@ class LogInForm extends PureComponent {
           <button
             type="button"
             className="btn btn-primary account__btn"
-            onClick={e => this.showPassword(e)}
+            onClick={e => this.onLoginClick(e)}
+            label="Login"
           />
         </div>
       </form>
