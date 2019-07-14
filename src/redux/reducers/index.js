@@ -4,6 +4,7 @@ import cryptoTableReducer from './cryptoTableReducer';
 import newOrderTableReducer from './newOrderTableReducer';
 import customizerReducer from './customizerReducer';
 import todoReducer from './todoReducer';
+import userReducer from './userReducer';
 
 export {
   themeReducer,
@@ -12,4 +13,5 @@ export {
   newOrderTableReducer,
   customizerReducer,
   todoReducer,
+  userReducer,
 };

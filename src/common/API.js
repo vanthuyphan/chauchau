@@ -17,7 +17,6 @@ exports.login = (username, password, cb) => {
         },
         body: JSON.stringify({username, password})
     };
-    console.log("Data", data);
     request(data, function (err, body) {
         cb(err, body);
     });
